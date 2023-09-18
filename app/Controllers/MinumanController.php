@@ -31,14 +31,14 @@ class MinumanController extends BaseController
             $username = $user->username; // Mengakses properti 'username'
 
             // Mengembalikan view dengan data dan username
-            return view('Layanan/Minuman', array_merge($data, ['username' => $username]));
+            return view('Layanan/Minuman/Minuman', array_merge($data, ['username' => $username]));
         } else {
             // Pengguna belum masuk atau telah logout
             // Tampilkan pesan untuk login terlebih dahulu
             $message = "Silakan login terlebih dahulu untuk mengakses halaman ini.";
             
             // Mengembalikan view dengan data pesan
-            return view('Layanan/Minuman', array_merge($data, ['message' => $message]));
+            return view('Layanan/Minuman/Minuman', array_merge($data, ['message' => $message]));
         }
     }
 }

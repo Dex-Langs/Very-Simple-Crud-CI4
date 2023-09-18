@@ -13,7 +13,7 @@ class RatingModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['makanan_id', 'rating'];
+    protected $allowedFields    = [ 'rating1'];
 
     public function makanan()
     {

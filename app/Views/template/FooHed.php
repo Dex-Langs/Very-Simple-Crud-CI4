@@ -164,21 +164,23 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    
     <script>
         $(document).ready(function() {
             // Event handler untuk saat bintang rating diklik
             $('.star').on('click', function() {
-                const rating = $(this).data('rating');
+                const rating = $(this).data('rating1');
                 const makananId = $(this).data('makanan-id');
                 $(this).addClass('selected');
                 $(this).prevAll().addClass('selected');
                 $(this).nextAll().removeClass('selected');
-                $('button[data-makanan-id="' + makananId + '"]').data('rating', rating); // Update nilai rating pada tombol Rate
+                $('button[data-makanan-id="' + makananId + '"]').data('rating11', rating); // Update nilai rating pada tombol Rate
             });
 
             // Event handler untuk saat tombol Rate diklik
             $('.rate-button').on('click', function() {
-                const rating = $(this).data('rating');
+                const rating = $(this).data('rating1');
                 const makananId = $(this).data('makanan-id');
                 $.ajax({
                     url: '/rate/' + makananId + '/' + rating, // Sesuaikan dengan URL yang sesuai

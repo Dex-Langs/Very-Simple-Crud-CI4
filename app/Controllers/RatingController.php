@@ -9,20 +9,46 @@ use App\Models\MakananModel;
 
 class RatingController extends BaseController
 {
+
+    protected $auth;
+
+    public function __construct()
+    {
+        // $this->makananModel = new MakananModel();
+        // $this->ratingModel = new RatingModel();
+        $this->auth = service('authentication');
+    }
+
     public function index()
     {
         $data = [
-            'title' => 'Daftar Makanan',
+            'title' => 'Rating Makanan',
             // 'makanan' => $this->RatingModel->findAll()
         ];
 
-        return view('Layanan/RatingMakanan', $data);
+        if ($this->auth->check()) {
+            $user = user(); // Mendapatkan objek pengguna yang terautentikasi
+            $username = $user->username; // Mengakses properti 'username'
+    
+            // Mengembalikan view dengan data dan username
+            return view('Layanan/Makanan/RatingMakanan', array_merge($data, ['username' => $username]));
+        } else {
+            // Pengguna belum masuk atau telah logout
+            // Tampilkan pesan untuk login terlebih dahulu
+            $message = "Silakan login terlebih dahulu untuk mengakses halaman ini.";
+            
+            echo '<script>reloadPage();</script>';
+            // Mengembalikan view dengan data pesan
+            return view('Layanan/Makanan/RatingMakanan', array_merge($data, ['message' => $message]));
+        }
+
+        // return view('Layanan/Makanan/RatingMakanan', $data);
     }
 
     public function createReview()
     {
         // Mendapatkan data yang dikirimkan dari formulir
-        $rating = $this->request->getPost('rating');
+        $rating = $this->request->getPost('rating1');
         // $comment = $this->request->getPost('comment');
         $makananId = $this->request->getPost('makanan_id'); // ID makanan yang direview
 
@@ -31,7 +57,7 @@ class RatingController extends BaseController
         // Simpan ulasan ke database
         $reviewModel = new RatingModel(); // Ganti dengan model yang sesuai
         $data = [
-            'rating' => $rating,
+            'rating1' => $rating,
             // 'comment' => $comment,
             'makanan_id' => $makananId,
             // Tambahkan kolom lain yang mungkin Anda perlukan

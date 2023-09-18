@@ -57,7 +57,7 @@ class MakananController extends BaseController
         $reviewCount = count($reviews);
 
         foreach ($reviews as $review) {
-            $totalRating += $review['rating'];
+            $totalRating += $review['rating1'];
         }
 
         return $reviewCount > 0 ? $totalRating / $reviewCount : 0;
@@ -128,6 +128,8 @@ class MakananController extends BaseController
             $makananModel = new MakananModel(); // Ganti dengan model yang sesuai
             $makananModel->insert($data);
 
+
+            echo '<script>reloadPage();</script>';
             // Redirect dengan pesan sukses
             return redirect()->to('/makanan')->with('success', 'Data Berhasil ditambah');
         } else {
@@ -155,7 +157,8 @@ class MakananController extends BaseController
             // Pengguna belum masuk atau telah logout
             // Tampilkan pesan untuk login terlebih dahulu
             $message = "Silakan login terlebih dahulu untuk mengakses halaman ini.";
-    
+
+            echo '<script>reloadPage();</script>';
             // Mengembalikan view dengan data pesan
             return view('Layanan/Makanan/DetailMakanan', array_merge($data, ['message' => $message]));
         }

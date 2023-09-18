@@ -1,26 +1,24 @@
 <?= $this->extend('template/FooHed'); ?>
 
 <?= $this->section('content'); ?>
-<br>
 
+<br>
 <div class="container" id="myDivs" style="display: none;">
-    <a class="btn btn-danger mx-auto mb-3" href="/tambahmakanan">Create</a>
     <div class="row">
         <div class="col">
-            <!-- <div class="row row-cols-3 row-md-1 g-4"> -->
             <div class="row">
-                <?php foreach ($makanan as $ms) : ?>
+                <?php foreach ($Minumans as $m) : ?>
                     <div class="col-lg-4 col-md-4 mb-4">
                         <!-- Card-->
                         <div class="card rounded shadow-sm border-0" style="max-height: 100%; min-height: 100%; overflow: hidden;">
                             <div class="card-body p-4">
                                 <div class="text-center mb-3">
-                                    <img src="img/<?= $ms['image']; ?>" style="max-width: 50%;  " class="img-fluid">
+                                    <img src="img/<?= $m['image']; ?>" style="max-width: 50%;  " class="img-fluid">
                                 </div>
-                                <h5 class="text"> <a href="/makanan/<?= $ms['slug']; ?>" class="text-dark"><?= $ms['nama_makanan']; ?></a></h5>
+                                <h5 class="text"> <a href="/makanan/<?= $m['slug']; ?>" class="text-dark"><?= $m['nama_minuman']; ?></a></h5>
                                 <!-- <h5 class="text-center"> <a href="/detailmakanan" class="btn btn-primary">Details</a></h5> -->
                                 <div style="max-height: 60px; overflow: hidden;">
-                                    <p class="small text-muted font-italic"><?= $ms['deskripsi']; ?></p>
+                                    <p class="small text-muted font-italic"><?= $m['deskripsi']; ?></p>
                                 </div>
                                 <ul class="list-inline small text-center">
                                     <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
@@ -31,7 +29,7 @@
                                 </ul>
                                 <div class="rating text-center">
                                     <?php for ($i = 1; $i <= 5; $i++) : ?>
-                                        <span class="star" data-rating="<?= $i; ?>" data-makanan-id="<?= $ms['id']; ?>">☆</span>
+                                        <span class="star" data-rating="<?= $i; ?>" data-makanan-id="<?= $m['id']; ?>">☆</span>
                                     <?php endfor; ?>
                                 </div>
                                 <div class="text-center">
@@ -45,17 +43,8 @@
 
                 <?php endforeach; ?>
             </div>
-
-            <!-- </div> -->
         </div>
     </div>
 </div>
-
-<script>
-    function reloadPage() {
-        location.reload();
-    }
-</script>
-
 
 <?= $this->endSection(); ?>
