@@ -37,14 +37,14 @@ class MakananController extends BaseController
             $username = $user->username; // Mengakses properti 'username'
 
             // Mengembalikan view dengan data dan username
-            return view('Layanan/Makanan', array_merge($data, ['username' => $username]));
+            return view('Layanan/Makanan/Makanan', array_merge($data, ['username' => $username]));
         } else {
             // Pengguna belum masuk atau telah logout
             // Tampilkan pesan untuk login terlebih dahulu
             $message = "Silakan login terlebih dahulu untuk mengakses halaman ini.";
 
             // Mengembalikan view dengan data pesan
-            return view('Layanan/Makanan', array_merge($data, ['message' => $message]));
+            return view('Layanan/Makanan/Makanan', array_merge($data, ['message' => $message]));
         }
     }
 
@@ -77,14 +77,14 @@ class MakananController extends BaseController
         $username = $user->username; // Mengakses properti 'username'
 
         // Mengembalikan view dengan data dan username
-        return view('Layanan/TambahMakanan', array_merge($data, ['username' => $username]));
+        return view('Layanan/Makanan/TambahMakanan', array_merge($data, ['username' => $username]));
     } else {
         // Pengguna belum masuk atau telah logout
         // Tampilkan pesan untuk login terlebih dahulu
         $message = "Silakan login terlebih dahulu untuk mengakses halaman ini.";
 
         // Mengembalikan view dengan data pesan
-        return view('Layanan/TambahMakanan', array_merge($data, ['message' => $message]));
+        return view('Layanan/Makanan/TambahMakanan', array_merge($data, ['message' => $message]));
     }
     }
 
@@ -103,7 +103,7 @@ class MakananController extends BaseController
 
         if (!$this->validate($rules)) {
             // Validasi gagal, kembali ke halaman form dengan pesan error
-            return view('Layanan/TambahMakanan', [
+            return view('Layanan/Makanan/TambahMakanan', [
                 'validation' => $validation,
             ]);
         }
@@ -134,5 +134,32 @@ class MakananController extends BaseController
             // Handle kesalahan pengunggahan gambar
             return redirect()->to('/makanan')->with('error', 'Gagal mengunggah gambar');
         }
+    }
+
+    public function detail($slug)
+    {
+        // dd($makanan);
+        $data = [
+            'title' => 'Detail Makanan',
+            'makanan' => $makanan = $this->makananModel->where(['slug' => $slug])->first()
+        ];
+    
+        // Cek apakah pengguna telah masuk
+        if ($this->auth->check()) {
+            $user = user(); // Mendapatkan objek pengguna yang terautentikasi
+            $username = $user->username; // Mengakses properti 'username'
+    
+            // Mengembalikan view dengan data dan username
+            return view('Layanan/Makanan/DetailMakanan', array_merge($data, ['username' => $username]));
+        } else {
+            // Pengguna belum masuk atau telah logout
+            // Tampilkan pesan untuk login terlebih dahulu
+            $message = "Silakan login terlebih dahulu untuk mengakses halaman ini.";
+    
+            // Mengembalikan view dengan data pesan
+            return view('Layanan/Makanan/DetailMakanan', array_merge($data, ['message' => $message]));
+        }
+        // echo $slug;
+        // return view('Layanan/Makanan/DetailMakanan');
     }
 }

@@ -20,7 +20,23 @@ class Rating extends Migration
                 'constraint' => 5,
                 'unsigned' => true,
             ],
-            'rating' => [
+            'rating1' => [
+                'type' => 'INT',
+                'constraint' => 1,
+            ],
+            'rating2' => [
+                'type' => 'INT',
+                'constraint' => 1,
+            ],
+            'rating3' => [
+                'type' => 'INT',
+                'constraint' => 1,
+            ],
+            'rating4' => [
+                'type' => 'INT',
+                'constraint' => 1,
+            ],
+            'rating5' => [
                 'type' => 'INT',
                 'constraint' => 1,
             ],
