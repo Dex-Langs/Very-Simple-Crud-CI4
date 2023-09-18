@@ -165,4 +165,11 @@ class MakananController extends BaseController
         // echo $slug;
         // return view('Layanan/Makanan/DetailMakanan');
     }
+
+    public function delete($id)
+    {
+        $this->makananModel->delete($id);
+
+        return redirect()->to('/makanan');
+    }
 }

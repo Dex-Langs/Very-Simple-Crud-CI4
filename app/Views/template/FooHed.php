@@ -7,6 +7,13 @@
     <title></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <style>
+        /* body {
+            display: grid;
+            grid-template-rows: 1fr auto;
+            min-height: 100vh;
+            margin: 0;
+        } */
+
         /* Center the loader */
         /* CSS untuk bintang */
         .rating {
@@ -119,26 +126,26 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <?php if (logged_in()) : ?>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link active"><?= $username; ?> !</a>
-                            </li>
-                        <?php else : ?>
-                            <p></p>
-                        <?php endif; ?>
-                    </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
-                    </li> 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Layanan
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/minuman">Minuman</a></li>
-                            <li><a class="dropdown-item" href="/makanan">Makanan</a></li>
-                            <li><a class="dropdown-item" href="#">Desert</a></li>
-                        </ul>
+                        <a href="#" class="nav-link active"><?= $username; ?> !</a>
                     </li>
+                <?php else : ?>
+                    <p></p>
+                <?php endif; ?>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Layanan
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/minuman">Minuman</a></li>
+                        <li><a class="dropdown-item" href="/makanan">Makanan</a></li>
+                        <li><a class="dropdown-item" href="#">Desert</a></li>
+                    </ul>
+                </li>
                 </ul>
                 <!-- Menempatkan elemen "Search" di sebelah kanan -->
                 <form class="d-flex ml-auto order-lg-last" role="search">
@@ -147,7 +154,7 @@
                 </form>
                 <!-- Menempatkan elemen "Login" di sebelah kanan -->
                 <ul class="navbar-nav ml-auto order-lg-last">
-                <?php include(APPPATH . 'Views/template/Loginbutton.php'); ?>
+                    <?php include(APPPATH . 'Views/template/Loginbutton.php'); ?>
                 </ul>
             </div>
         </div>
@@ -165,7 +172,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    
+
     <script>
         $(document).ready(function() {
             // Event handler untuk saat bintang rating diklik
@@ -175,7 +182,7 @@
                 $(this).addClass('selected');
                 $(this).prevAll().addClass('selected');
                 $(this).nextAll().removeClass('selected');
-                $('button[data-makanan-id="' + makananId + '"]').data('rating11', rating); // Update nilai rating pada tombol Rate
+                $('button[data-makanan-id="' + makananId + '"]').data('rating1', rating); // Update nilai rating pada tombol Rate
             });
 
             // Event handler untuk saat tombol Rate diklik

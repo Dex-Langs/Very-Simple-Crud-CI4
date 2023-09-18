@@ -15,7 +15,11 @@
                     <p class="card-text"><?= $makanan['deskripsi']; ?></p>
                     <p class="card-text"><?= $makanan['harga_makanan']; ?> <b> Rp</b>  Per porsi</p>
                     <p class="card-text"><small class="text-body-secondary"><?= $makanan['created_at']; ?></small></p>
-                    <a href="/makanan" class="btn btn-outline-dark">Kembali</a>
+                    <a href="#" class="btn btn-outline-success mb-2">Edit</a>
+                    |
+                    <a href="/delete/<?= $makanan['id'] ?>" class="btn btn-outline-danger mb-2">Delete</a>
+                    <br>
+                    <a href="/makanan" class="link-underline-light">Kembali</a>
                 </div>
             </div>
         </div>

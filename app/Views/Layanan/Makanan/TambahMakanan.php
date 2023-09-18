@@ -7,6 +7,20 @@
         <div class="col">
             <!-- <div class="row row-cols-1 row-cols-md-3 g-4"> -->
             <div class="card ms-3 px-5 p-5" style="max-width: 600;">
+
+
+                <?php if (session()->has('success')) : ?>
+                    <div class="alert alert-success">
+                        <?= session('success') ?>
+                    </div>
+                <?php endif; ?>
+
+                <?php if (isset($errors)) : ?>
+                    <div class="alert alert-danger">
+                        <?= \Config\Services::validation()->listErrors() ?>
+                    </div>
+                <?php endif; ?>
+
                 <form action="/storemakanan" method="post" enctype="multipart/form-data">
                     <?php csrf_field() ?>
                     <h4 class="card-title mb-3">

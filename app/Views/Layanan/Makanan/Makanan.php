@@ -14,33 +14,27 @@
                         <!-- Card-->
                         <div class="card rounded shadow-sm border-0" style="max-height: 100%; min-height: 100%; overflow: hidden;">
                             <div class="card-body p-4">
-                                <div class="text-center mb-3">
-                                    <img src="img/<?= $ms['image']; ?>" style="max-width: 50%;  " class="img-fluid">
-                                </div>
-                                <h5 class="text"> <a href="/makanan/<?= $ms['slug']; ?>" class="text-dark"><?= $ms['nama_makanan']; ?></a></h5>
-                                <!-- <h5 class="text-center"> <a href="/detailmakanan" class="btn btn-primary">Details</a></h5> -->
+                                <img src="/img/<?= $ms['image']; ?>" style="max-width: 40%;" class="img-fluid d-block mx-auto mb-3">
+                                <h5> <a href="/makanan/<?= $ms['slug']; ?>" class="text-dark"><?= $ms['nama_makanan']; ?></a></h5>
+                                <!-- <h5> <a href="/detailmakanan" class="btn btn-primary">Details</a></h5> -->
                                 <div style="max-height: 60px; overflow: hidden;">
                                     <p class="small text-muted font-italic"><?= $ms['deskripsi']; ?></p>
                                 </div>
-                                <ul class="list-inline small text-center">
+                                <ul class="list-inline small">
                                     <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
                                     <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
                                     <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
                                     <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
                                     <li class="list-inline-item m-0"><i class="fa fa-star-o text-success"></i></li>
+                                    <div class="rating">
+                                        <?php for ($i = 1; $i <= 5; $i++) : ?>
+                                            <span class="star" data-rating="<?= $i; ?>" data-makanan-id="<?= $ms['id']; ?>">☆</span>
+                                        <?php endfor; ?>
+                                    </div>
+                                    <a href="/rate" class="mx-5">Rate</a>
                                 </ul>
-                                <div class="rating text-center">
-                                    <?php for ($i = 1; $i <= 5; $i++) : ?>
-                                        <span class="star" data-rating="<?= $i; ?>" data-makanan-id="<?= $ms['id']; ?>">☆</span>
-                                    <?php endfor; ?>
-                                </div>
-                                <div class="text-center">
-                                    <a href="/rate">Rate</a>
-                                </div>
                             </div>
                         </div>
-
-
                     </div>
 
                 <?php endforeach; ?>
