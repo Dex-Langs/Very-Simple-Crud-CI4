@@ -44,7 +44,7 @@
                     <label for="harga_makanan">Harga Makanan :</label>
                     <br>
                     <div class="input-group mb-3">
-                        <input type="number" name="harga_makanan" class="form-control" aria-label="Harga Makanan (to the nearest dollar)">
+                        <input type="number" maxlength="5" name="harga_makanan" class="form-control" aria-label="Harga Makanan (to the nearest dollar)">
                         <span class="input-group-text">.00</span>
                         <span class="input-group-text">Rp</span>
                     </div>

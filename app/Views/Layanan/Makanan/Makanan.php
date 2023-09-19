@@ -14,13 +14,13 @@
                         <!-- Card-->
                         <div class="card rounded shadow-sm border-0" style="max-height: 100%; min-height: 100%; overflow: hidden;">
                             <div class="card-body p-4">
-                                <img src="/img/<?= $ms['image']; ?>" style="max-width: 40%;" class="img-fluid d-block mx-auto mb-3">
+                                <img src="/img/<?= $ms['image']; ?>" style="max-width: 40%; min-height: 30%;" class="img-fluid d-block mx-auto mb-3">
                                 <h5> <a href="/makanan/<?= $ms['slug']; ?>" class="text-dark"><?= $ms['nama_makanan']; ?></a></h5>
                                 <!-- <h5> <a href="/detailmakanan" class="btn btn-primary">Details</a></h5> -->
                                 <div style="max-height: 60px; overflow: hidden;">
                                     <p class="small text-muted font-italic"><?= $ms['deskripsi']; ?></p>
                                 </div>
-                                <ul class="list-inline small">
+                                <ul class="list-inline small text-center">
                                     <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
                                     <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
                                     <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
@@ -31,7 +31,7 @@
                                             <span class="star" data-rating="<?= $i; ?>" data-makanan-id="<?= $ms['id']; ?>">☆</span>
                                         <?php endfor; ?>
                                     </div>
-                                    <a href="/rate" class="mx-5">Rate</a>
+                                    <a href="/rate" class="btn btn-outline-warning mx-5 mt-2 text-center">Rate</a>
                                 </ul>
                             </div>
                         </div>

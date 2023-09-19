@@ -11,7 +11,7 @@
                     <div class="col-lg-4 col-md-4 mb-4">
                         <!-- Card-->
                         <div class="card rounded shadow-sm border-0" style="max-height: 100%; min-height: 100%; overflow: hidden;">
-                            <div class="card-body p-4">
+                            <div class="card-body p-4"  >
                                 <div class="text-center mb-3">
                                     <img src="img/<?= $m['image']; ?>" style="max-width: 50%;  " class="img-fluid">
                                 </div>
@@ -33,7 +33,7 @@
                                     <?php endfor; ?>
                                 </div>
                                 <div class="text-center">
-                                    <a href="/rate">Rate</a>
+                                    <a href="/rate" class="btn btn-outline-warning mx-5 mt-2 text-center">Rate</a>
                                 </div>
                             </div>
                         </div>
